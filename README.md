@@ -1,5 +1,7 @@
 # Instructions
 
+[![Join the chat at https://gitter.im/gscacco/tbot](https://badges.gitter.im/gscacco/tbot.svg)](https://gitter.im/gscacco/tbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Steps to start programming:
 
 * `git clone` this repo
