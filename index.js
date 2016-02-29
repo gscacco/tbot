@@ -10,7 +10,7 @@ const bot = new Bot({
 	token: tToken
 });
 
-const myId = 169803530;
+const myId = process.argv[3];
 var pictureFileId = "AgADBAADv6cxGwr_Hgp6b8He0seVIIyGGxkABH42Bft8mIA0biMCAAEC";
 
 w.info("Bot token:", tToken);
