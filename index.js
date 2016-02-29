@@ -11,14 +11,13 @@ const bot = new Bot({
 });
 
 const myId = process.argv[3];
-var pictureFileId = "AgADBAADv6cxGwr_Hgp6b8He0seVIIyGGxkABH42Bft8mIA0biMCAAEC";
 
 w.info("Bot token:", tToken);
 
 bot.on('message', function(msg) {
 	w.debug(JSON.stringify(msg));
 	if (msg.photo) {
-		w.debug("isPicture? :" + isPic);
+		w.debug("isPicture");
 		if (myId == msg.from.id) {
 			w.info("Master message."); {
 				pictureFileId = msg.photo[1].file_id;
@@ -55,7 +54,7 @@ var sendPic = function(userId) {
 					caption: 'Menù del giorno'
 				});
 
-			}, function errorHandler1(error) {
+			}, function (error) {
 				w.debug("Refreshed pic on server");
 				bot.sendPhoto({
 					chat_id: userId,
@@ -70,7 +69,7 @@ var sendPic = function(userId) {
 				});
 			}
 
-		).catch(function errorHandler2(error) {
+		).catch(function (error) {
 			// handle errors from errorHandler1
 			w.debug("Error Sending file_id: " + error);
 
