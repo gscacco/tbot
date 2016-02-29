@@ -19,22 +19,17 @@ bot.on('message', function(msg) {
 	if (msg.photo) {
 		w.debug("isPicture");
 		if (myId == msg.from.id) {
-			w.info("Master message."); {
-				pictureFileId = msg.photo[1].file_id;
-				w.info("Stored day menu with id: " + pictureFileId);
-				bot.sendMessage({
-					chat_id: msg.from.id,
-					text: " Menù Aggiornato."
-				})
-			}
-
+			w.info("Master message.");
+			pictureFileId = msg.photo[0].file_id;
+			w.info("Stored day menu with id: " + pictureFileId);
+			bot.sendMessage({
+				chat_id: msg.from.id,
+				text: " Menù Aggiornato."
+			})
 		}
 	} else {
 		sendPic(msg.from.id);
 	}
-
-	utils.handleMessage(msg, bot);
-
 });
 
 bot.start();
@@ -54,7 +49,7 @@ var sendPic = function(userId) {
 					caption: 'Menù del giorno'
 				});
 
-			}, function (error) {
+			}, function(error) {
 				w.debug("Refreshed pic on server");
 				bot.sendPhoto({
 					chat_id: userId,
@@ -69,7 +64,7 @@ var sendPic = function(userId) {
 				});
 			}
 
-		).catch(function (error) {
+		).catch(function(error) {
 			// handle errors from errorHandler1
 			w.debug("Error Sending file_id: " + error);
 
